@@ -1,21 +1,18 @@
 package com.raistudies.domain;
 
-
 import java.io.Serializable;
 
-public class User implements Serializable{
+public class User implements Serializable {
 
-    private static final long serialVersionUID = 3647233284813657927L;
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", standard=" + standard
+				+ ", age=" + age + ", sex=" + sex + "]";
+	}
 
-    private String id;
-    private String name = null;
-    private String standard = null;
-    private String age;
-    private String sex = null;
+	private String id, name, standard, age, sex;
 
-    //setter and getter have been omitted to make the code short
-
-    public String getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -54,14 +51,4 @@ public class User implements Serializable{
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	@Override
-    public String toString() {
-        return "User [name=" + name + ", standard=" + standard + ", age=" + age
-        + ", sex=" + sex + "]";
-    }
 }
