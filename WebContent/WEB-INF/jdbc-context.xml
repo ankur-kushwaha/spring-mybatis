@@ -16,12 +16,14 @@
 	<!-- Enable annotation style of managing transactions -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	<!-- Declare a datasource that has pooling capabilities -->
-	<bean id="dataSource" class="javax.sql.DataSource"
-		destroy-method="close" p:driverClass="${app.jdbc.driverClassName}"
-		p:jdbcUrl="${app.jdbc.url}" p:user="${app.jdbc.username}" p:password="${app.jdbc.password}"
-		p:acquireIncrement="10" p:idleConnectionTestPeriod="60" p:maxPoolSize="100"
-		p:maxStatements="50" p:minPoolSize="10" />
+	<!-- For MySQL -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+       <property name="url" value="jdbc:mysql://localhost:3306/test" />  
+       <property name="username" value="root" />  
+       <property name="password" value ="" /> 
+    </bean>
+    
 
 	<!-- Declare a transaction manager -->
 	<bean id="transactionManager"

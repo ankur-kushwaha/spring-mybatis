@@ -10,15 +10,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.raistudies.domain.User;
 
 @Controller
-@RequestMapping("/parent")
 public class UserController {
 
 	@Autowired
 	UserService springService;
 
+	@RequestMapping("/")
+	@ResponseBody
+	public String test(){
+		return "Success";
+	}
+	
 	@RequestMapping("/a.json")
 	@ResponseBody
 	public List<User> init() {
 		return springService.getUser();
 	}
+	
+	
 }
